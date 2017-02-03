@@ -52,7 +52,7 @@ class Test(tests.CommonTest):
                       self.count),)]
         self.assertEqual(self.mock_render_env.call_args_list, expected)
 
-    def test_build_all_default(self):
+    def test_build_all_with_no_state(self):
         with self.temp_dir() as dname:
             # Make the expected RPM build SPECS directory.
             os.makedirs(os.path.join(dname, 'SPECS'))
@@ -60,7 +60,7 @@ class Test(tests.CommonTest):
             state = {}
             self._check_full_build(dname, state)
 
-    def test_build_all_with_mismatch(self):
+    def test_build_all_with_no_state_match(self):
         with self.temp_dir() as dname:
             # Make the expected RPM build SPECS directory.
             os.makedirs(os.path.join(dname, 'SPECS'))
